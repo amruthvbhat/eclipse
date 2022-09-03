@@ -13,7 +13,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor 
 @NoArgsConstructor 
-
 public class Items {
 	private int itemId;
 	private String productName;
