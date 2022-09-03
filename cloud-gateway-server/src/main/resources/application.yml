@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  cloud: 
+    gateway: 
+      filter:
+        prefix-path:
+          enabled: true
+
+      routes:
+      - id: cartModule
+        uri: http://localhost:8090/
+        predicates:
+        - Path=/cart/**
+      - id: productModule
+        uri: http://localhost:8091/
+        predicates:
+        - Path=/product/**
+  application:
+    name: cloud-gateway-api
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
